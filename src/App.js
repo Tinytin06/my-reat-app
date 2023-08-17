@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import ImageButton from './components/ImageButton';
+import NoTextImageButton from './components/NoTextImageButton';
 
 function App() {
   return (
@@ -9,17 +13,32 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <View style={styles.container}>
+      <NoTextImageButton
+        onPress={() => console.log("Button as component")} 
+        imageStyle={styles.image} 
+        source={require("./birb.png")}
+      />
+      <StatusBar style="auto" />
+    </View>
       </header>
     </div>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 0,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius:12
+  },
+  image: {
+    alignContent:"top",
+    width: 450,
+    height: 50,
+    borderRadius:12
+  }
+});
 
 export default App;
